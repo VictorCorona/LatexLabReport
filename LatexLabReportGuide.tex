@@ -1,0 +1,194 @@
+\documentclass{article}
+\usepackage{graphicx}    %Required for inserting images
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    }
+\urlstyle{same}
+
+\title{Writing Lab Reports with \LaTeX}
+\author{Victor Corona}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+This is a lab dedicated to learning to write a lab report using LaTex to write lab reports. LaTex is a useful tool to use to write reports because it is a free and open source language that allows full control over your document format. The easiest way to get started using LaTex is with the website \href{www.overleaf.com}{overleaf.com}. This is an online editor that makes it easy to compile LaTex and import packages online instead of downloading the compiler and packages you want to use. 
+
+Most scientific writing is done in LaTex, so there are many templates available for any format you need to follow. 
+    
+\end{abstract}
+
+\section{Introduction}
+
+Latex is a free and open source language used to create documents for scientific writing. Most lab reports, research papers, and journal publications are written in latex for greater control over formatting and better integration of mathematical expressions. For example, you can present an equation in a document like this;
+\begin{center}
+    $x=\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+\end{center}
+or create and inline equation just as easily; $y=mx+b$. The formatting of these equations is done automatically by latex and is faster than you can do with a word processor like Microsoft word. Latex can also be used to create tables, slide shows, and more, but this document will focus on writing a lab report. 
+
+The easiest way to start using latex is to go to \url{www.overleaf.com} and create an account to start writing a new document. You can also download latex packages to run latex locally on your computer.
+
+\subsection{Parts of a Lab Report}
+
+There are five main sections of a lab report:
+\begin{itemize}
+    \item Abstract
+    \item Introduction
+    \item Methods and Experiment
+    \item Analysis and Discussion
+    \item Conclusion
+\end{itemize}
+These five parts are all required for a complete lab report; sometimes there may be more depending on the type of experiment you are doing. 
+
+\subsection{Abstract}
+
+The abstract is an overview of the entire experiment that explains what your goals were and what your results are. You can think of the abstract as its own standalone section of the report; many readers of scientific papers will not read beyond the abstract. This is why it is very important to clearly state the purpose and include your final results in the abstract. 
+
+\subsection{Introduction}
+
+The introduction explains the theoretical background of the experiment and why it is important. This is where you will give all the background information the reader needs to understand what you are trying to measure and how you will calculate your results. You should also include any equations or laws of physics that relate to the experiment in the introduction,. The introduction is the first part of the lab report, if you think of the abstract as a standalone piece, so it is important to give all the context and explanations of what the experiment is meant to do. You can think of the introduction as the section that relates what you learned in lecture and how it applies to the experiment in lab. 
+
+\subsection{Experiment and Methods}
+
+This sections will explain how you conducted the experiment and what equipment you used to take your measurements. You should answer the questions "How did you get your data?" in this section. You should be detailed enough that another student can recreate the experiment in a different lab with their equipment, but not specific enough that you are rewriting the lab instructions for the next class to read. This means there should be \textbf{no lists} in this section, it is not a cooking recipe. 
+
+\subsection{Analysis and Discussion}
+
+This will be the most important part of your lab report. The analysis will use the theoretical background from the introduction and apply it to the data you collected in the experiments. Present your results here and explain the meaning behind them. It is important to explain what the results mean and how they match the theoretical prediction from the introduction. You can discuss the uncertainty in your results and data collecting process. 
+
+\subsection{Conclusion}
+
+The conclusion wraps up the entire report into one section. This is where you should state your results and if they were what you expected them to be. You can also state how you could improve in the future. 
+
+\section{Experiment}
+
+To setup a basic latex document, you will need to choose a document class. The document class you should use for lab reports is an article; this is used for short reports and documents. Once you setup the document, you can write a basic document between the \verb|\begin{document| and \verb|\end{document}| commands. 
+
+\begin{verbatim}
+    \documentclass{article}
+    \begin{document}
+
+    \end{document}
+\end{verbatim}
+
+
+\subsection{Preamble}
+
+Your lab report should include a preamble after the \verb|\documentclass{article}| and before the \verb|\begin{document}| lines. The preamble will setup the format of the document and import the packages you want to use to write your report. 
+
+To make a title for your document, you can use the \verb|\title{}| command in the preamble and the \verb|\maketitle| command at the start of the document. You can also include the \verb|\author{}| and \verb|\date{}| commands to create a full title page. 
+
+\begin{verbatim}
+    \documentclass{article}
+    \title{Writing Lab Reports with \LaTeX}
+    \author{Victor Corona}
+    \date{\today}
+
+    \begin{document}
+
+    \maketitle
+
+    \end{document}
+\end{verbatim}
+
+\subsection{Equations}
+
+The best part about learning latex is the way equations are written is becoming universally how to write them in other word processors. You can either have equations stand on their own in a new line or you can write inline equations such as $y=mx+b$. Equations in latex are written between two \verb|$| symbols. For example, here is how to write the quadratic formula:
+\begin{center}
+$x=\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+\end{center}
+
+\begin{verbatim}
+    \begin{center}
+    $x=\frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+    \end{center}
+\end{verbatim}
+
+\subsection{Figures}
+
+The first package you should use is the graphicx package. This will allow you to include images and figures you add to the same folder as the .tex file you are writing. Overleaf allows you to upload images and store them with your document, making it easy to include figures. 
+
+\begin{verbatim}
+    \documentclass{article}
+    \usepackage{graphicx}    %Required for inserting images
+    \begin{document}
+    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\linewidth]{figure.png}
+        \caption{Caption}
+        \label{fig:enter-label}
+    \end{figure}
+    
+    \end{document}
+\end{verbatim}
+
+\subsection{Sections}
+
+It is easy to create the sections you want for your lab report and even subsections to divide it furthre into smaller parts. You can use the \verb|\section{}| and \verb|\subsection{}| commands to create either. To make the abstract formatted as a scientific paper, you must put a \verb|\begin{abstract}| command after the \verb|\begin{document}| command. You can write your full abstract anywhere between the \verb|\begin{abstract}| line and the \verb|\end{abstract}| line. 
+\begin{verbatim}
+    \documentclass{article}  
+    \begin{document}
+
+    \begin{abstract}
+
+    \end{abstract}
+
+    \section{Section 1}
+
+    \section{Section 2}
+    
+    \subsection{Subsection 2.1}
+    \subsection{Subsection 2.2}
+
+    \section{Section 3}
+
+    \end{document}
+\end{verbatim}
+
+\subsection{Bibliography}
+
+Including a bibliography in your document with latex is not as straight forward as the other parts. The bibliography requires your citations to be put into a .bib file in the folder with your .tex file. You also need to setup the bibliography in the preamble to fit the format you want it to be in. To create a citation, ue the \verb|\cite{}| command in your document where you want the citation to be. At the end of your document, you can use the \verb|\printbibliography| command to create the bibliography at the end of the document. 
+
+Here is an example of what should go in the .bib file:
+\begin{verbatim}
+    @article{einstein,
+    author = "Albert Einstein",
+    title = "{Zur Elektrodynamik bewegter K{\"o}rper}. ({German})
+    [{On} the electrodynamics of moving bodies]",
+    journal = "Annalen der Physik",
+    volume = "322",
+    number = "10",
+    pages = "891--921",
+    year = "1905",
+    DOI = "http://dx.doi.org/10.1002/andp.19053221004",
+    keywords = "physics"
+    }
+\end{verbatim}
+Here is how you can create a citation and add the bibliography from a references.bib file:
+\begin{verbatim}
+    \documentclass{article}
+    \usepackage[natbib}
+    \addbibresource{references.bib}
+
+    \begin{document}
+    Example of a citation \cite{einstein}.
+
+    \printbibliography
+    \end{document}
+\end{verbatim}
+
+\section{Analysis and Discussion}
+To put together all this information, I created a template you can use to write your lab report in latex that is on my \href{https://github.com/VictorCorona/LatexLabReport/tree/main/LatexLabReport}{GitHub}. You can download the .zip folder or fork the repository to save the .tex file of the template. You can also copy and paste the plain text of the file into a blank document as well. 
+
+\section{Conclusion}
+You can now start writing your lab report with latex!
+
+\end{document}
